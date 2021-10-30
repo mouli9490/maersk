@@ -14,6 +14,19 @@ terraform {
    features {}
  }
 
+
+#######
+data "azurerm_key_vault_secret" "test" {
+  name      = "secret-sauce"
+  vault_uri = "https://vaulturl.com"
+}
+
+data "secret_value" {
+  value = "${data.azurerm_key_vault_secret.test.value}"
+}
+
+#######
+
  resource "azurerm_resource_group" "test" {
    name     = "acctestrg"
    location = "West US 2"
@@ -137,7 +150,7 @@ terraform {
    os_profile {
      computer_name  = "hostname"
      admin_username = "testadmin"
-     admin_password = "Password1234!"
+     admin_password = "${data.azurerm_key_vault_secret.secret_value.value}"
    }
 
    os_profile_linux_config {
