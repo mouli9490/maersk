@@ -1,0 +1,8 @@
+Q1 Scenario
+
+Here i'm using a classic pipeline.
+1. To trigger build as soon as anyone in dev checks in code to master branch - we need to enable continous integration in triggers.
+2.fail the build if any test fails - uncheck the check box continue on error.
+3.The deployment of code and artifacts should be automated to Dev environment - we need to enable continous deployment trigger in artifacts to create a new release every time a new build is available.
+4.Upon successful deployment to the Dev environment, deployment should be easily promoted to QA and Prod through automated process - we need to add stages called QA and Prod.
+5.The deployments to QA and Prod should be enabled with Approvals from approvers only - we can add post deployment script to add the approvers, who can provide approvals.
