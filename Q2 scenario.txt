@@ -1,1 +1,17 @@
 
+we would need main.tf file to create azure resources using terraform
+---------
+we will need 
+Azure devops
+git to store the scripts
+create a service connection to azure portal from azure devops.
+----------------------------
+create a pipeline 
+get source code from git.
+add task to 
+terraform init
+terraform plan
+terraform apply 
+-------------------------
+ 
+for accessing the azure keyvault we can have a code block in terrafrom it self to get the value from the key valut and pass it to the Admin password.
